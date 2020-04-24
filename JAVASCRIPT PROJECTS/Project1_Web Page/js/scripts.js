@@ -1,5 +1,5 @@
 
-// Menu Mobile
+// Menu Mobile(Responsive function)
 
 document.getElementById('hamburguer-icon').onclick = function() {
 
@@ -11,7 +11,7 @@ document.getElementById('sliding-header-menu-close-button').onclick = function()
   document.getElementById('sliding-header-menu-outer').style.right = "-320px";
 }
 
-// About us Tab
+// About us Tab (My Mission, My Vision and My Values functionalities implementation)
 
 var aboutUs = {
   "My Mission": "Make each customer recognized as an authority in their segment. Add value to the business, enhance the growth of operations and promote and strengthen the client's relationship with its target audience, through the generation of relevant content.",
@@ -58,6 +58,35 @@ var our_services = [
   }
   
 ];
+
+var current_service = 0;
+//Previous button implementation
+document.getElementById('service-previous').onclick = function() {
+  if(current_service == 0){
+    var previous = our_services.length - 1;
+  }
+  else{
+    var previous = current_service - 1;
+  }
+
+  document.getElementById('service-title').innerHTML = our_services[previous].title;
+  document.getElementById('service-text').innerHTML = our_services[previous].text;
+  current_service = previous;
+};
+
+//Next button implementation
+document.getElementById('service-next').onclick = function() {
+  if(current_service == our_services.length - 1){
+    var next = 0;
+  }
+  else{
+    var next = current_service + 1;
+  }
+
+  document.getElementById('service-title').innerHTML = our_services[next].title;
+  document.getElementById('service-text').innerHTML = our_services[next].text;
+  current_service = next;
+};
 
 
 // Data Footer
