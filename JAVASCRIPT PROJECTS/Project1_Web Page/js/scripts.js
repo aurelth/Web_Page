@@ -92,9 +92,3 @@ document.getElementById('service-next').onclick = function() {
 // Data Footer
 
 
-
-  
-   
-
-
-   

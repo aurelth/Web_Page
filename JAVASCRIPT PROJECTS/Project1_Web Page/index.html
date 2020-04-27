@@ -296,19 +296,31 @@
                 </div>
                 
 
-                <div class="contact-form small-12 medium-10 large-6 columns no-padding small-centered">
+                <div class="contact-form small-12 medium-10 large-6 columns no-padding small-centered">                    
 
-                    <form id="email_form">
-
-                        <input type="text" name="subject" class="field" placeholder="Full Name"/>
-                            
-                        <input type="text" name="extra_email" class="field" placeholder="E-mail"/>
-                        
-                        <textarea type="text" name="text" class="field" placeholder="Message"></textarea>
-                    
-                        <input id="submit_form" type="submit" value="Send" />
-                        
+                    <form action="https://postmail.invotes.com/send" method="post" id="email_form">
+                
+                        <input type="text" name="subject" placeholder="Subject" />
+                        <input type="text" name="extra_name" placeholder="Name" />
+                        <input type="text" name="extra_email" placeholder="E-mail" />
+                        <textarea name="text" placeholder="Message"></textarea>
+                        <input type="hidden" name="access_token" value="4f3em1dz3khbq2bm40cmt43t" />                      
+                        <input type="hidden" name="success_url" value="https://www.google.com" />
+                        <input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />                                                      
+                        <input id="submit_form" type="submit" value="Send" />                    
                     </form>
+                     
+                <!-- optional, prevents the submit button from being pressed more than once -->
+                    <script>
+                        var submitButton = document.getElementById("submit_form");
+                        var form = document.getElementById("email_form");
+                        form.addEventListener("submit", function (e) {
+                            setTimeout(function() {
+                                submitButton.value = "Sending...";
+                                submitButton.disabled = true;
+                            }, 1);
+                        });
+                    </script> 
 
                 </div>
 
