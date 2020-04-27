@@ -94,3 +94,5 @@ document.getElementById('service-next').onclick = function() {
 var current_yearr = new Date;
 current_yearr = current_yearr.getFullYear();
 document.getElementById('current_year').innerHTML = current_yearr;
+
+
